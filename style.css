@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  background: linear-gradient(to right, #1c2430, #222b38);
+  border-bottom: 2px solid #1e90ff;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1e90ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #9aa4b2;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: blue;
+}
+
+.cart {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #e63946;
+  color: white;
+  font-size: 12px;
+  padding: 4px 7px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.welcome{
+    background-color: #1e90ff;
+    padding: 150px;
+    text-align: center;
+    color: white;
+}
+.welcome h2{
+    font-size: 40px;
+}
+.welcome p{
+    font-size: 18px;
+}
+.welcome-button{
+    background-color: navy;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+.featured{
+    background-color: white;
+
+}
+.featured h2{
+    color: #1e40ff;
+    text-align: center;
+    font-size: 35px;
+    margin-top: 20px;
+}
+.featured form{
+    background-color: #222b3859;
+    padding: 15px;
+    margin-top: 20px;
+}
+.feform-input{
+    width: 400px;
+    height: 30px;
+    border: 1px solid black;
+}
+.feform-button{
+    padding: 8px;
+    background-color: #1c2430;
+    color: white;
+} 
+.product{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    justify-self: center;
+    gap: 15px;
+}
+.products{
+    padding: 5px;
+    background-color: rgba(0, 0, 255, 0.041);
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 128, 0.459);
+    width: 400px;
+    height: 450px;
+}
+.products img{
+    width: 350px;
+    height: 250px;
+    position: relative;
+    bottom: 20px;
+    border-radius: 15px;
+}
+.prod-header{
+    font-size: 25px;
+}
+.prod-price{
+    font-size: 20px;
+    color: #1e40ff;
+    font-weight: bold;
+}
+.prod-button{
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    width: 250px;
+    position: relative;
+    left: 50px;
+}
+.choose{
+    background: #222b3865;
+    margin-top: 40px;
+    padding: 50px;
+}
+.choose h2{
+    color: #1e90ff;
+    font-size: 35px;
+    justify-self: center;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.boxes{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-self: center;
+
+}
+.box{
+    background-color: white;
+    padding: 20px 10px;
+    border-radius: 15px;
+    pad: 5px;
+    width: 330px;
+    height: 120px;
+    justify-items: center;
+}
+.box h3{
+    color: #1e90ff;
+}
+.box p{
+    font-size: 17px;
+    align-content: center;
+}
+.boxes :hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px blue;
+}
+.form-section h2{
+    color: #1e40ff;
+    font-size: 40px;
+    justify-self: center;
+    margin-top: 15px;
+}
+.main-form{
+    justify-self: center;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+.form-input{
+    border: 1px solid black;
+    width: 400px;
+    height: 25px;
+}
+.form-message{
+    border: 1px solid black;
+    width: 400px;
+    height: 85px;
+}
+.send-message{
+    background-color: rgba(0, 0, 255, 0.904);
+    color: white;
+    font-size:18px;
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+}    
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(to right, #1c2430, #222b38);
+  padding: 50px 80px;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid #2f3a4a;
+}
+.footer-tins h3 {
+  color: #1e90ff;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.footer-tins a {
+  text-decoration: none;
+  color: #b0b8c4;
+  font-size: 15px;
+  transition: 0.3s;
+}
+.footer-tins a:hover {
+  color: #ffffff;
+}
+.footer-bottom{
+    background-color: black;
+    color: white;
+    justify-items: center;
+    padding: 30px;
+}
