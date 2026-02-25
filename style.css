@@ -1,26 +1,43 @@
-* {
+/* ========================
+   RESET & BASE
+======================== */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #1c2430;
+}
+
+/* ========================
+   NAVBAR
+======================== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 60px;
+  padding: 20px 60px;
   background: linear-gradient(to right, #1c2430, #222b38);
   border-bottom: 2px solid #1e90ff;
-  font-family: Arial, sans-serif;
   position: fixed;
-  z-index: 1;
+  top: 0;
   width: 100%;
+  z-index: 1000;
+  gap: 20px;
 }
 
 .logo {
-  font-size: 30px;
+  font-size: clamp(20px, 3vw, 30px);
   font-weight: bold;
   color: #1e90ff;
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -33,207 +50,483 @@
   text-decoration: none;
   color: #9aa4b2;
   font-size: 16px;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
-  color: blue;
+  color: #1e90ff;
 }
 
 .cart {
   position: relative;
-  width: 40px;
-  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: white;
 }
 
 .badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -8px;
+  right: -10px;
   background: #e63946;
   color: white;
-  font-size: 12px;
-  padding: 4px 7px;
+  font-size: 11px;
+  padding: 2px 6px;
   border-radius: 50%;
   font-weight: bold;
+  min-width: 20px;
+  text-align: center;
 }
-.welcome{
-    background-color: #1e90ff;
-    padding: 150px;
-    text-align: center;
-    color: white;
-}
-.welcome h2{
-    font-size: 40px;
-}
-.welcome p{
-    font-size: 18px;
-}
-.welcome-button{
-    background-color: navy;
-    color: white;
-    padding: 10px;
-    font-size: 15px;
-}
-.featured{
-    background-color: white;
 
+/* Hamburger button — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
 }
-.featured h2{
-    color: #1e40ff;
-    text-align: center;
-    font-size: 35px;
-    margin-top: 20px;
-}
-.featured form{
-    background-color: #222b3859;
-    padding: 15px;
-    margin-top: 20px;
-}
-.feform-input{
-    width: 400px;
-    height: 30px;
-    border: 1px solid black;
-}
-.feform-button{
-    padding: 8px;
-    background-color: #1c2430;
-    color: white;
-} 
-.product{
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    justify-self: center;
-    gap: 15px;
-}
-.products{
-    padding: 5px;
-    background-color: rgba(0, 0, 255, 0.041);
-    padding: 40px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 128, 0.459);
-    width: 400px;
-    height: 450px;
-}
-.products img{
-    width: 350px;
-    height: 250px;
-    position: relative;
-    bottom: 20px;
-    border-radius: 15px;
-}
-.prod-header{
-    font-size: 25px;
-}
-.prod-price{
-    font-size: 20px;
-    color: #1e40ff;
-    font-weight: bold;
-}
-.prod-button{
-    background-color: green;
-    color: white;
-    padding: 10px;
-    border-radius: 15px;
-    width: 250px;
-    position: relative;
-    left: 50px;
-}
-.choose{
-    background: #222b3865;
-    margin-top: 40px;
-    padding: 50px;
-}
-.choose h2{
-    color: #1e90ff;
-    font-size: 35px;
-    justify-self: center;
-    font-weight: bold;
-    margin-bottom: 25px;
-}
-.boxes{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-self: center;
 
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s, opacity 0.3s;
 }
-.box{
-    background-color: white;
-    padding: 20px 10px;
-    border-radius: 15px;
-    pad: 5px;
-    width: 330px;
-    height: 120px;
-    justify-items: center;
+
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ========================
+   HERO / WELCOME
+======================== */
+.welcome {
+  background: linear-gradient(135deg, #1e90ff 0%, #1a5fd1 100%);
+  padding: clamp(100px, 15vw, 160px) 20px 80px;
+  text-align: center;
+  color: white;
+  margin-top: 70px; /* offset for fixed navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
-.box h3{
-    color: #1e90ff;
+
+.welcome h2 {
+  font-size: clamp(26px, 5vw, 48px);
 }
-.box p{
-    font-size: 17px;
-    align-content: center;
+
+.welcome p {
+  font-size: clamp(15px, 2vw, 20px);
+  max-width: 600px;
 }
-.boxes :hover{
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px blue;
+
+.welcome-button {
+  background-color: navy;
+  color: white;
+  padding: 12px 32px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.3s;
 }
-.form-section h2{
-    color: #1e40ff;
-    font-size: 40px;
-    justify-self: center;
-    margin-top: 15px;
+
+.welcome-button:hover {
+  background-color: #0000aa;
 }
-.main-form{
-    justify-self: center;
-    font-size: 18px;
-    margin-bottom: 25px;
+
+/* ========================
+   FEATURED / FILTER
+======================== */
+.featured {
+  background-color: #f5f7fa;
+  padding: 30px clamp(16px, 5vw, 60px);
 }
-.form-input{
-    border: 1px solid black;
-    width: 400px;
-    height: 25px;
+
+.featured h2 {
+  color: #1e40ff;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 35px);
+  margin-bottom: 20px;
 }
-.form-message{
-    border: 1px solid black;
-    width: 400px;
-    height: 85px;
+
+.featured form {
+  background-color: rgba(34, 43, 56, 0.08);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
 }
-.send-message{
-    background-color: rgba(0, 0, 255, 0.904);
-    color: white;
-    font-size:18px;
-    width: 400px;
-    height: 40px;
-    border-radius: 10px;
-}    
+
+.featured label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feform-input {
+  flex: 1;
+  min-width: 160px;
+  height: 38px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+.feform-button {
+  padding: 8px 20px;
+  background-color: #1c2430;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.feform-button:hover {
+  background-color: #1e90ff;
+}
+
+/* ========================
+   PRODUCTS GRID
+======================== */
+.product {
+  padding: 30px clamp(16px, 5vw, 60px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  background: #fff;
+}
+
+.products {
+  background-color: rgba(0, 0, 255, 0.04);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 128, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.products:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 128, 0.25);
+}
+
+.products img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.prod-header {
+  font-size: clamp(16px, 2vw, 22px);
+}
+
+.prod-info {
+  font-size: 14px;
+  color: #555;
+  flex-grow: 1;
+}
+
+.prod-review {
+  color: #f4a200;
+  font-size: 14px;
+}
+
+.prod-price {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #1e40ff;
+  font-weight: bold;
+}
+
+.prod-button {
+  background-color: #16a34a;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.prod-button:hover {
+  background-color: #15803d;
+}
+
+/* ========================
+   WHY CHOOSE US
+======================== */
+.choose {
+  background: rgba(34, 43, 56, 0.06);
+  padding: 50px clamp(16px, 5vw, 60px);
+}
+
+.choose h2 {
+  color: #1e90ff;
+  font-size: clamp(22px, 4vw, 35px);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.box {
+  background-color: white;
+  padding: 24px 16px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 255, 0.2);
+}
+
+.box h3 {
+  color: #1e90ff;
+  font-size: 16px;
+}
+
+.box p {
+  font-size: 15px;
+  color: #444;
+}
+
+/* ========================
+   CONTACT FORM
+======================== */
+.form-section {
+  padding: 40px clamp(16px, 5vw, 60px);
+  background: #fff;
+}
+
+.form-section h2 {
+  color: #1e40ff;
+  font-size: clamp(24px, 4vw, 40px);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.main-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-form label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.form-input {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 100%;
+  height: 38px;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+.form-message {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 100%;
+  height: 100px;
+  padding: 8px 10px;
+  font-size: 15px;
+  resize: vertical;
+}
+
+.send-message {
+  background-color: rgba(0, 0, 255, 0.85);
+  color: white;
+  font-size: 17px;
+  width: 100%;
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.send-message:hover {
+  background-color: #1e40ff;
+}
+
+/* ========================
+   FOOTER
+======================== */
 .footer-top {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  gap: 30px;
   background: linear-gradient(to right, #1c2430, #222b38);
-  padding: 50px 80px;
-  font-family: Arial, sans-serif;
+  padding: 50px clamp(20px, 5vw, 80px);
   border-top: 1px solid #2f3a4a;
 }
+
+.footer-tins {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 120px;
+}
+
 .footer-tins h3 {
   color: #1e90ff;
-  margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 17px;
 }
+
 .footer-tins a {
   text-decoration: none;
   color: #b0b8c4;
-  font-size: 15px;
-  transition: 0.3s;
+  font-size: 14px;
+  transition: color 0.3s;
 }
+
 .footer-tins a:hover {
-  color: #ffffff;
+  color: #fff;
 }
-.footer-bottom{
-    background-color: black;
-    color: white;
-    justify-items: center;
-    padding: 30px;
+
+footer hr {
+  border-color: #2f3a4a;
+}
+
+.footer-bottom {
+  background-color: #0d1117;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* ========================
+   RESPONSIVE BREAKPOINTS
+======================== */
+
+/* Tablet: 2 columns */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 16px 30px;
+  }
+
+  .product {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: hamburger nav, 1 column */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+    gap: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .cart {
+    order: 3;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    order: 4;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    border-top: 1px solid #2f3a4a;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 0;
+    font-size: 16px;
+  }
+
+  .welcome {
+    margin-top: 90px;
+    padding: 60px 20px 50px;
+  }
+
+  .product {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
+  }
+
+  .boxes {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+  }
+
+  .feform-button {
+    width: 100%;
+  }
 }
