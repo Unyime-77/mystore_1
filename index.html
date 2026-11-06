@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="lonesyte-site-verification" content="DKb6vB1QGb2wlaKboSIdzI2vN8U1maBQ" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Unyime Store</title>
   <link rel="stylesheet" href="style.css" />
@@ -43,6 +44,13 @@
       <label for="maxPrice">Max Price ($):</label>
       <div class="filter-row">
         <input type="number" id="maxPrice" placeholder="Enter max price" class="feform-input">
+        <label for="category" class="all-category">All Category</label>
+        <select name="category" id="category">
+          <option value="all category" class="category-button">All Category</option>
+          <option value="laptop">Laptop</option>
+          <option value="phones">Phones</option>
+          <option value="accessories">accessories</option>
+        </select>
         <button type="button" class="feform-button">Filter</button>
       </div>
     </form>
@@ -179,7 +187,7 @@
     </div>
   </footer>
 
-  <script>
+  <script src="store.js">
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {

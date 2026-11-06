@@ -529,3 +529,12 @@ footer hr {
     width: 100%;
   }
 }
+
+.all-category{
+  position: relative;
+  top: -20px;
+  left: 110px;
+}
+.category-button{
+  width: 30px;
+}
